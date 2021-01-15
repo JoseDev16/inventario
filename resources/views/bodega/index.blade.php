@@ -11,18 +11,17 @@
       Agregar producto
    </button>
 </div>
-<!-- Fin Boton agregar producto modal -->
+<
 
-<!-- Agregar Modal -->
-
+<!-- Venta Modal -->
+@include('bodega.partials.ventaModal')
 <!-- Fin Agregar Modal -->
-<!-- agregar producto a bodega-->
-
-<!-- fin producto a bodega modal-->
+<
 
 
 
-<!-- Fin Boton agregar categoria modal -->
+
+
 @if(count($productos) > 0)
 <!-- Table -->
 <table class="table">
@@ -54,10 +53,10 @@
             
         
 
-               <button type="button" title="Realizar venta" data-toggle="modal" data-target="#addProductoBodega"
+               <button type="button" title="Realizar venta" data-toggle="modal" data-target="#ventaModal"
                class="fas fa-comment-dollar"
                style="color:gray !important; background-color:transparent; border: 0px solid;"
-               onclick="fun_add()"></button>
+               onclick="fun_add($producto->id)"></button>
             
          </td>
       </tr>
@@ -117,34 +116,14 @@
 </div>
 
 <script type="text/javascript">
-   //Función para editar un motivo de sustitución en especifico
-   function fun_edit(id)
+   //Función para calcular total
+   function total()
    {
-      var view_url= '{{ route("producto.edit_view", ":id") }}';
-      view_url = view_url.replace(':id', id);
-      
-      $.ajax({
-         url: view_url,
-         type:"GET", 
-         data: {"id":id},
-         success: function(user){
-             console.log(user);
-            $("#edit_id").val(result.id);
-            $('#nameEdit').val(result.name);
-            $('#emailEdit').val(result.email);
-            $('#passwordEdit').val(result.password);
-            $('#estadoEdit').val(result.estado);
-         }
-      })
+      var cantIngresada = parseFloat(document.getElementById("cantidad").value);
+      var precio = parseFloat(document.getElementById("precio").value);
+      console.log(precio);
+       document.getElementById(total).value = precio * cantIngresada
    }
-   function fun_add(id)
-    {
-        console.log(id);
-        $("#producto_id2").val(id); 
-    }
-   function fun_delete(id)
-    {
-        $("#delete_id").val(id); 
-    }
+ 
 </script>
 @endsection

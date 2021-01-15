@@ -15,10 +15,11 @@ class ProductosTableSeeder extends Seeder
     public function run()
     {
         DB::table('productos')->insert([
-            'nombre_producto' => 'telefono',
+            'nombre_producto' => 'Celular',
+            'sku' => '00001',
             'precio'  => 10,
             'inStock' => 1,
-            'categoria_id' => 1
+            
             
         ]);
     }
