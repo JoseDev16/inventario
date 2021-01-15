@@ -33,7 +33,7 @@
         <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Venta</a>
+        <a class="nav-link" href="{{ route('bodega.index') }}">Venta</a>
       </li>
     </ul>
   </div>

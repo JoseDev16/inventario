@@ -14,10 +14,10 @@
 <!-- Fin Boton agregar producto modal -->
 
 <!-- Agregar Modal -->
-@include('producto.partials.addModalproducto')
+
 <!-- Fin Agregar Modal -->
 <!-- agregar producto a bodega-->
-@include('producto.partials.addProductoBodegaModal')
+
 <!-- fin producto a bodega modal-->
 
 
@@ -32,7 +32,10 @@
          <th scope="col">SKU</th>
          <th scope="col">Nombre</th>
          <th scope="col">Precio</th>
-         <th scope="col">Disponible</th>
+         
+         <th scope="col">Bodega</th>
+         <th scope="col">Area</th>
+         <th scope="col">Cantidad</th>
          <th scope="col">Acciones</th>
       </tr>
       <?php $i = 0 ?>
@@ -43,23 +46,18 @@
          <td> {{ $producto->sku }} </td>
          <td> {{ $producto->nombre_producto }} </td>
          <td> {{ $producto->precio }} </td>
-         <td> @if($producto->inStock) 
-              <label class="text-success">Disponible</label>
-              
-              @else
-             
-              <label class="text-danger">Agotado</label>
-            @endif
+         <td> {{ $producto->nombre_bodega }} </td>
+         <td> {{ $producto->area }} </td>
+         <td> {{ $producto->cantidad }} </td>
         
-          </td>
          <td style="display: flex">
             
         
 
-               <button type="button" title="Agregar a bodega" data-toggle="modal" data-target="#addProductoBodega"
-               class="fas fa-boxes"
+               <button type="button" title="Realizar venta" data-toggle="modal" data-target="#addProductoBodega"
+               class="fas fa-comment-dollar"
                style="color:gray !important; background-color:transparent; border: 0px solid;"
-               onclick="fun_add('{{$producto->id}}')"></button>
+               onclick="fun_add()"></button>
             
          </td>
       </tr>
@@ -71,7 +69,7 @@
 
 
 <!-- Editar Modal-->
-@include('producto.partials.editModalproducto')
+
 <!-- Fin Editar Modal-->
 
 @else

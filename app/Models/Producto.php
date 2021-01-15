@@ -14,7 +14,7 @@ class Producto extends Model
 
     public function bodegas()
     {
-        return $this->belongsToMany(Bodega::class, 'producto_bodegas', 'producto_id', 'bodega_id');
+        return $this->belongsToMany(Bodega::class, 'producto_bodegas', 'producto_id', 'bodega_id')->withPivot('area', 'cantidad');;
 
     }
 }

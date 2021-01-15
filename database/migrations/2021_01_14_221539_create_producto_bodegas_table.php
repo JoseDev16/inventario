@@ -16,7 +16,7 @@ class CreateProductoBodegasTable extends Migration
         Schema::create('producto_bodegas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bodega_id')->constrained();
-            $table->foreignId('producto_id')->constrained();
+            $table->foreignId('producto_id')->constrained()->cascadeOnDelete();
             $table->string('area');
             $table->integer('cantidad');
             $table->timestamps();
