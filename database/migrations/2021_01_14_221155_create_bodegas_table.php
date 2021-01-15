@@ -16,7 +16,8 @@ class CreateBodegasTable extends Migration
         Schema::create('bodegas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_bodega');
-            $table->foreignId('area_id')->constrained();
+           
+            
             $table->timestamps();
         });
     }

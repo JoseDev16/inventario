@@ -17,6 +17,8 @@ class CreateProductoBodegasTable extends Migration
             $table->id();
             $table->foreignId('bodega_id')->constrained();
             $table->foreignId('producto_id')->constrained();
+            $table->string('area');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

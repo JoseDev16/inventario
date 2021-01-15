@@ -19,7 +19,7 @@ class CreateProductosTable extends Migration
             $table->string('sku');
             $table->double('precio');
             $table->boolean('inStock');
-            $table->string('estado');
+           
             
             
             $table->timestamps();
